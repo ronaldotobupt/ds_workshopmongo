@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "users")
+@Document
 public class User {
 	
 	@Id
@@ -16,7 +16,7 @@ public class User {
 	private String email;
 	
 	@DBRef(lazy = true)
-	public List<Post>posts = new ArrayList<>();
+	public List<Post> posts = new ArrayList<>();
 	
 	public User() {
 		
@@ -51,5 +51,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+	
+	
 	
 }
